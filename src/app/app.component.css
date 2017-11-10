@@ -1,0 +1,11 @@
+.menu-container {
+    width: 15%;
+    padding: 20px;
+    float: left;
+}
+
+.main-container {
+    width: 75%;
+    padding: 20px;
+    float: right;
+}
