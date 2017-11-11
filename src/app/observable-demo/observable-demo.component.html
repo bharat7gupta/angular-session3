@@ -1,3 +1,31 @@
-<p>
-  observable-demo works!
-</p>
+<h2>Observable operators/utility methods</h2>
+<h3>map</h3>
+<h4>Change data domain</h4>
+{{ collection | json }} => {{ squared | json }}
+
+<h4>Change data structure</h4>
+{{indexed | json}}
+
+<hr/>
+
+<h3>filter</h3>
+<h4>Get only odd numbers</h4>
+{{ evenNums | json }}
+
+<hr/>
+
+<h3>Compose filter and map</h3>
+<h4>Get only odd numbers and then square them</h4>
+{{ evenSquaredNums | json }}
+
+<hr/>
+
+<h2>Observable from Events</h2>
+<div #box class="box"></div>
+{{coords | json}}
+
+<br>
+<br>
+<br>
+<br>
+<br>
