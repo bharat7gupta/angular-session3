@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DirectiveDemoComponent implements OnInit {
 
+  choiceOfLife: string = 'peace';
+  peaceLovers = ['Batman', 'Shaktimaan', 'We'];
+  chaosLovers = ['Joker', 'Dr. Jaikal', 'We'];
+  choiceStyles = {
+    color: 'green'
+  }
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  setChoice(choiceOfLife) {
+    this.choiceOfLife=choiceOfLife;
+    this.choiceStyles.color = this.choiceOfLife === 'peace' ? 'green' : 'red';
   }
 
 }

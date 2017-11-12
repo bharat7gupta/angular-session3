@@ -1,3 +1,47 @@
-<p>
-  directive-demo works!
+<h2>Attribute Directives</h2>
+<h3>ngClass</h3>
+<div>
+  <p>
+    You choose your allies based on what you are deep within.
+    <br/>
+    What do you choose?
+  </p>
+  <button class="btn toggle-button" (click)="setChoice('peace')"
+    [ngClass]="choiceOfLife==='peace' ? 'btn-primary' : 'btn-default'">
+    Peace
+  </button>
+
+  <span class="or-separator">or</span>
+
+  <button class="btn toggle-button" (click)="setChoice('chaos')" 
+    [ngClass]="choiceOfLife==='chaos' ? 'btn-primary' : 'btn-default'">
+    Chaos
+  </button>
+</div>
+
+<hr/>
+
+<h3>ngStyle</h3>
+<p>You chose: 
+  <span style="font-size: 16px;" [ngStyle]="choiceStyles">{{choiceOfLife}}</span>
 </p>
+
+<p><b>Note:</b> You can achieve the same as above using attribute binding as shown below</p>
+<p>You chose: 
+  <span style="font-size: 16px;" [style.color]="choiceOfLife==='peace' ? 'green' : 'red'">{{choiceOfLife}}</span>
+</p>
+
+<h2>Structural Directives</h2>
+<h3>ngIf &amp; ngFor</h3>
+<p>Here are a few {{choiceOfLife}} lovers:</p>
+<ul *ngIf="choiceOfLife==='peace'">
+  <li *ngFor="let peaceLover of peaceLovers">{{peaceLover}}</li>
+</ul>
+
+<ul *ngIf="choiceOfLife==='chaos'">
+  <li *ngFor="let chaosLover of chaosLovers">{{chaosLover}}</li>
+</ul>
+
+<h2>Custom Directive</h2>
+<h3>Draggable</h3>
+<div draggable class="box"></div>

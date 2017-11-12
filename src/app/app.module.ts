@@ -12,6 +12,7 @@ import { ServiceDemoComponent } from './service-demo/service-demo.component';
 import { FormDemoComponent } from './form-demo/form-demo.component';
 import { ComponentInteractionDemoComponent } from './component-interaction-demo/component-interaction-demo.component';
 import { RoutingDemoComponent } from './routing-demo/routing-demo.component';
+import { DraggableDirective } from './draggable.directive';
 
 const routes = [
   { path: 'home', component: HomeComponent },
@@ -37,6 +38,7 @@ const routes = [
     FormDemoComponent,
     ComponentInteractionDemoComponent,
     RoutingDemoComponent,
+    DraggableDirective,
   ],
   imports: [
     BrowserModule,

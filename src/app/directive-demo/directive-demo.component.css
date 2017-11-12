@@ -1,0 +1,19 @@
+.toggle-button {
+    width: 100px;
+}
+
+.or-separator {
+    position: relative;
+    display: inline-block;
+    width: 23px;
+    height: 23px;
+    margin: 5px -12px;
+    border-radius: 50%;
+    border: 1px solid #e1e1e1;
+    background-color: white;
+    text-align: center;
+    z-index: 20;
+    color: #828080;
+    line-height: 1.7;
+    font-size: 12px;
+}

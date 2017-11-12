@@ -2,3 +2,11 @@
 h2 {
     background: #e1e1e1;
 }
+
+.box {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background: yellow;
+    border: 1px solid #31464d;
+}
