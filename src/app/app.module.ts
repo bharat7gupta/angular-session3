@@ -13,6 +13,7 @@ import { FormDemoComponent } from './form-demo/form-demo.component';
 import { ComponentInteractionDemoComponent } from './component-interaction-demo/component-interaction-demo.component';
 import { RoutingDemoComponent } from './routing-demo/routing-demo.component';
 import { DraggableDirective } from './draggable.directive';
+import { DebitCardNumberPipe } from './debit-card-number.pipe';
 
 const routes = [
   { path: 'home', component: HomeComponent },
@@ -39,6 +40,7 @@ const routes = [
     ComponentInteractionDemoComponent,
     RoutingDemoComponent,
     DraggableDirective,
+    DebitCardNumberPipe,
   ],
   imports: [
     BrowserModule,

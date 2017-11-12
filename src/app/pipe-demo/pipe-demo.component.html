@@ -1,3 +1,38 @@
-<p>
-  pipe-demo works!
-</p>
+<h2>Simple Pipes</h2>
+<div>
+  <h3>| lowercase</h3>
+  <p>{{theShortGuy}} => {{theShortGuy | lowercase}}</p>
+
+  <h3>| uppercase</h3>
+  <p>{{theTallGuy}} => {{theTallGuy | uppercase}}</p>
+
+  <h3>| titlecase</h3>
+  <p>{{theHonourableGuy}} => {{theHonourableGuy | titlecase}}</p>
+</div>
+
+<div>
+  <h3>| date</h3>
+  <p>Date: {{today | date}}</p>
+</div>
+
+<h2>Parameterized Pipes</h2>
+<div>
+  <h3>| date:'dd MMMM yyyy'</h3>
+  <p>Date: {{today | date:'dd MMMM yyyy'}}</p>
+</div>
+
+<h2>Chaining Pipes</h2>
+<h3>| date:'dd MMMM yyyy' | uppercase</h3>
+<p>Date: {{today | date:'dd MMMM yyyy' | uppercase}}</p>
+
+<h2>Custom Pipe</h2>
+<h3>| debitCardNumber</h3>
+<p>Card Number: {{cardNumber}} => {{cardNumber | debitCardNumber}}</p>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
