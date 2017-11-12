@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { HttpModule, Http, XHRBackend, RequestOptions } from '@angular/http';
+import { HashLocationStrategy, LocationStrategy } from "@angular/common";
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
@@ -12,8 +14,13 @@ import { ServiceDemoComponent } from './service-demo/service-demo.component';
 import { FormDemoComponent } from './form-demo/form-demo.component';
 import { ComponentInteractionDemoComponent } from './component-interaction-demo/component-interaction-demo.component';
 import { RoutingDemoComponent } from './routing-demo/routing-demo.component';
+
 import { DraggableDirective } from './draggable.directive';
+
 import { DebitCardNumberPipe } from './debit-card-number.pipe';
+
+import { DataService } from './data.service';
+import { HttpService } from './http.service';
 
 const routes = [
   { path: 'home', component: HomeComponent },
@@ -44,9 +51,25 @@ const routes = [
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [
+    DataService,
+
+    // class provider
+    // { provide: LocationStrategy, useClass: HashLocationStrategy },
+
+    // factory provider
+    // { 
+    //   provide: Http, 
+    //   useFactory: (backend: XHRBackend, options: RequestOptions) => {
+    //     return new HttpService(backend, options);
+    //   },
+    //   deps: [XHRBackend, RequestOptions]
+    // }
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -21,7 +21,7 @@ export class DraggableDirective {
   }
 
   @HostBinding("style.cursor")
-  cursor = "move";
+  cursor = "move"; // cursor type
 
   @HostListener('mousedown', ['$event'])
   onMouseDown(event: any) {
