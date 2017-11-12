@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-form-demo',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormDemoComponent implements OnInit {
 
-  constructor() { }
+  payee: any = {};
+
+  constructor(private jsonPipe: JsonPipe) { }
 
   ngOnInit() {
+  }
+
+  showTemplateFormData() {
+    alert("Sumitting: " + this.jsonPipe.transform(this.payee));
   }
 
 }

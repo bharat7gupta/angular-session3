@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpModule, Http, XHRBackend, RequestOptions } from '@angular/http';
-import { HashLocationStrategy, LocationStrategy } from "@angular/common";
+import { HashLocationStrategy, LocationStrategy, JsonPipe } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
@@ -16,6 +17,8 @@ import { ComponentInteractionDemoComponent } from './component-interaction-demo/
 import { RoutingDemoComponent } from './routing-demo/routing-demo.component';
 
 import { DraggableDirective } from './draggable.directive';
+
+import { CardNumberValidator } from './card-number.validator';
 
 import { DebitCardNumberPipe } from './debit-card-number.pipe';
 
@@ -48,10 +51,12 @@ const routes = [
     RoutingDemoComponent,
     DraggableDirective,
     DebitCardNumberPipe,
+    CardNumberValidator,
   ],
   imports: [
     BrowserModule,
     HttpModule,
+    FormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [
@@ -69,6 +74,7 @@ const routes = [
     //   deps: [XHRBackend, RequestOptions]
     // }
     
+    JsonPipe    
   ],
   bootstrap: [AppComponent]
 })
