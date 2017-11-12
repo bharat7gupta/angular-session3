@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Renderer, OnInit, HostListener } from '@angular/core';
+import { Directive, ElementRef, Renderer, HostListener, HostBinding } from '@angular/core';
 
 class Position {
   constructor(public x: number, public y: number) { }
@@ -7,7 +7,7 @@ class Position {
 @Directive({
   selector: '[draggable]'
 })
-export class DraggableDirective implements OnInit {
+export class DraggableDirective {
 
   private moving: boolean = false;
   private orignal: Position = null;
@@ -20,9 +20,8 @@ export class DraggableDirective implements OnInit {
     this.element = el.nativeElement;
   }
 
-  ngOnInit() {
-    this.element.style.cursor = "move";
-  }
+  @HostBinding("style.cursor")
+  cursor = "move";
 
   @HostListener('mousedown', ['$event'])
   onMouseDown(event: any) {
