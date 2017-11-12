@@ -11,4 +11,6 @@ h2 {
     height: 100px;
     background: yellow;
     border: 1px solid #31464d;
+    text-align: center;
+    display: inline-block;
 }
