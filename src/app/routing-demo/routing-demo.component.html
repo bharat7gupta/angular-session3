@@ -1,3 +1,39 @@
+<ul *ngIf="showList">
+  <h3>Contacts</h3>
+  <li *ngFor="let contact of contacts$ | async">
+    <a [routerLink]="[ '/routing-demo/contact', contact.id ]">{{contact.first_name}}</a>
+  </li>
+</ul>
+
+<div *ngIf="!showList">
+  <h3>Contact: {{currentContact.id}}</h3>
+  <table class="table">
+    <tbody>
+      <tr>
+        <td>First Name</td>
+        <td>{{currentContact.first_name}}</td>
+      </tr>
+
+      <tr>
+        <td>Last Name</td>
+        <td>{{currentContact.last_name}}</td>
+      </tr>
+
+      <tr>
+        <td>Email</td>
+        <td>{{currentContact.email}}</td>
+      </tr>
+
+      <tr>
+        <td>Phone</td>
+        <td>{{currentContact.phone}}</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<hr>
 <h3>Live Demo</h3>
 <ul>
   <li>Hash Location Strategy</li>

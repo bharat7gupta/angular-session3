@@ -38,6 +38,7 @@ const routes = [
   { path: 'forms-demo', component: FormDemoComponent },
   { path: 'component-interaction-demo', component: ComponentInteractionDemoComponent },
   { path: 'routing-demo', component: RoutingDemoComponent },
+  { path: 'routing-demo/contact/:id', component: RoutingDemoComponent },
   { path: '**', component: HomeComponent }
 ];
 
