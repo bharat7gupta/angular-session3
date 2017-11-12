@@ -24,6 +24,10 @@ import { DebitCardNumberPipe } from './debit-card-number.pipe';
 
 import { DataService } from './data.service';
 import { HttpService } from './http.service';
+import { MessageComponent } from './message/message.component';
+import { DisplayMessagesComponent } from './display-messages/display-messages.component';
+import { ToasterComponent } from './toaster/toaster.component';
+import { GlobalMessageService } from './global-message.service';
 
 const routes = [
   { path: 'home', component: HomeComponent },
@@ -52,6 +56,9 @@ const routes = [
     DraggableDirective,
     DebitCardNumberPipe,
     CardNumberValidator,
+    MessageComponent,
+    DisplayMessagesComponent,
+    ToasterComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,6 +81,7 @@ const routes = [
     //   deps: [XHRBackend, RequestOptions]
     // }
     
+    GlobalMessageService,
     JsonPipe    
   ],
   bootstrap: [AppComponent]

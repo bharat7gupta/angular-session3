@@ -1,0 +1,9 @@
+.messages-container {
+    height: 300px;
+    width: 100%;
+    overflow: auto;
+}
+
+.message {
+    padding: 10px 5px;
+}

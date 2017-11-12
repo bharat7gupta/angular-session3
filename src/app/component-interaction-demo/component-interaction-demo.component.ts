@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComponentInteractionDemoComponent implements OnInit {
 
+  messages: Array<string> = [];
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  addMessage(message) {
+    this.messages.push(message);
   }
 
 }

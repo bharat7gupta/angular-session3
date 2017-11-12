@@ -1,3 +1,10 @@
-<p>
-  component-interaction-demo works!
-</p>
+<div class="message-container">
+    <div class="messages-box">
+
+        <!-- Input binding. This component passes down the messages array to child component 'display-messages' -->
+        <display-messages [messages]="messages"></display-messages>
+    </div>
+
+    <!-- Output binding. 'message' comp calls addMessage func from its parent component. -->
+    <message (onNewMessage)="addMessage($event)"></message>    
+</div>
