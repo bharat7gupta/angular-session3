@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { Observable } from "rxjs/Observable";
 import "rxjs/add/observable/of";
 import "rxjs/add/observable/from";
@@ -6,16 +6,21 @@ import "rxjs/add/observable/fromEvent";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/filter";
 import { Observer } from "rxjs/Observer";
+import { Subscription } from "rxjs/Subscription";
 
 @Component({
   selector: 'app-observable-demo',
   templateUrl: './observable-demo.component.html',
   styleUrls: ['./observable-demo.component.css']
 })
-export class ObservableDemoComponent implements OnInit {
+export class ObservableDemoComponent implements OnInit, OnDestroy {
 
   @ViewChild('box') box: ElementRef;
   
+  // simple observable
+  simpleObservableValue: any;
+  simpleObserableSubscription: Subscription;
+
   // map
   collection = [2, 5, 7];
   squared: Array<number> = [];
@@ -34,6 +39,18 @@ export class ObservableDemoComponent implements OnInit {
 
   constructor() { }
 
+  private createBasicObservable() {
+    return Observable.create(emitter => {
+      emitter.next(10);
+
+      setTimeout(() => emitter.next(20), 2000);
+
+      setTimeout(() => emitter.next(30), 4000);
+
+      setTimeout(() => emitter.complete('done'), 5000);      
+    })
+  }
+
   private listenToWebSocket(): Observable<any> {
 
     this.websocket = new WebSocket('ws://localhost:8081');
@@ -47,6 +64,26 @@ export class ObservableDemoComponent implements OnInit {
   }
 
   ngOnInit() {
+    // simple observable demo
+    let observable: Observable<any> = this.createBasicObservable();
+
+    let observer = {
+      next: (value) => {
+        this.simpleObservableValue = value;
+      },
+      error: () => {
+
+      },
+      complete: () => {
+        this.simpleObservableValue = 'done';
+      }
+    };
+
+    this.simpleObserableSubscription = observable.subscribe(observer.next, observer.error, observer.complete);
+
+
+
+
     // map - change data domain
     Observable.from(this.collection)
       .map(num => num * num)
@@ -83,8 +120,12 @@ export class ObservableDemoComponent implements OnInit {
     });
 
     // observable from websocket data event
-    this.listenToWebSocket()
-      .subscribe((data) => { /* Use Data from socket */ });
+    // this.listenToWebSocket()
+    //   .subscribe((data) => { /* Use Data from socket */ });
+  }
+
+  ngOnDestroy() {
+    this.simpleObserableSubscription.unsubscribe();
   }
 
 }

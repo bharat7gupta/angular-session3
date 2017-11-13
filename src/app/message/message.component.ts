@@ -20,7 +20,7 @@ export class MessageComponent implements OnInit {
 
   sendMessage() {
     this.onNewMessage.emit(this.message);
-    this.globalMessage.sendMessage(this.message);
+    // this.globalMessage.sendMessage(this.message);
     this.message = "";
   }
 
