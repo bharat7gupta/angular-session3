@@ -38,9 +38,9 @@ export class ObservableDemoComponent implements OnInit {
 
     this.websocket = new WebSocket('ws://localhost:8081');
 
-    return Observable.create(observer => {
+    return Observable.create(emitter => {
       this.websocket.onmessage = (evt) => {
-        observer.next(evt);
+        emitter.next(evt);
       };
     })
     .map(res => res.data)
