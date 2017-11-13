@@ -1,7 +1,7 @@
 import { Directive, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, FormControl } from '@angular/forms';
 
-function validateCardNumber() {
+export function validateCardNumber() {
   return (control: FormControl) => {
     let cardNumberRegEx = /^\d{16}$/i;
 

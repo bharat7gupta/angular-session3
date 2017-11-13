@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpModule, Http, XHRBackend, RequestOptions } from '@angular/http';
 import { HashLocationStrategy, LocationStrategy, JsonPipe } from '@angular/common';
@@ -65,6 +66,7 @@ const routes = [
     BrowserModule,
     HttpModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [
