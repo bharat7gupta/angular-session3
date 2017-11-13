@@ -85,7 +85,7 @@ const routes = [
     // }
     
     GlobalMessageService,
-    JsonPipe    
+    JsonPipe
   ],
   bootstrap: [AppComponent]
 })

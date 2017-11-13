@@ -20,17 +20,18 @@ export class RoutingDemoComponent implements OnInit {
     private dataService: DataService,
     private route: ActivatedRoute
   ) { 
-    this.route.params.subscribe((params: Params) => {
-      this.contactId = +params["id"];
+    this.contactId = +this.route.snapshot.paramMap.get("id");
+    // this.route.params.subscribe((params: Params) => {
+    //   this.contactId = +params["id"];
 
       if(this.contactId) {
         this.showList = false;
         this.currentContact = this.dataService.getContacts()
                                   .subscribe((contacts) => {
                                     this.currentContact = contacts.filter((contact) => contact.id === this.contactId)[0];
-                                  });;
+                                  });
       }
-    });
+    // });
   }
 
   ngOnInit() {
