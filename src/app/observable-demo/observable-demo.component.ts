@@ -79,10 +79,8 @@ export class ObservableDemoComponent implements OnInit, OnDestroy {
       }
     };
 
-    this.simpleObserableSubscription = observable.subscribe(observer.next, observer.error, observer.complete);
-
-
-
+    this.simpleObserableSubscription = observable
+      .subscribe(observer.next, observer.error, observer.complete);
 
     // map - change data domain
     Observable.from(this.collection)
